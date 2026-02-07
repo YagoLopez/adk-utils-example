@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUp } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 interface ChatInputProps {
   input: string;
@@ -15,6 +16,14 @@ export function ChatInput({
   onSubmit,
   isLoading,
 }: ChatInputProps) {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (!isLoading && textareaRef.current) {
+      textareaRef.current.focus();
+    }
+  }, [isLoading]);
+
   return (
     <div className="border-t border-border px-4 py-4 sm:px-6">
       <form
@@ -26,6 +35,7 @@ export function ChatInput({
       >
         <div className="relative flex-1">
           <textarea
+            ref={textareaRef}
             value={input}
             onChange={(e) => onInputChange(e.target.value)}
             onKeyDown={(e) => {
