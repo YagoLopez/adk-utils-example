@@ -16,7 +16,7 @@ export function ChatInput({
   isLoading,
 }: ChatInputProps) {
   return (
-    <div className="border-t border-border px-4 py-4 sm:px-6">
+    <div className="px-4 py-4 sm:px-6">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -37,7 +37,7 @@ export function ChatInput({
             placeholder="Message the agent..."
             disabled={isLoading}
             rows={1}
-            className="w-full resize-none rounded-xl border border-border bg-card px-4 py-3 pr-12 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans"
+            className="w-full resize-none rounded-xl border border-border bg-glass/70 px-4 py-3 pr-12 text-sm text-foreground placeholder:text-muted-foreground focus:border-foreground/30 focus:outline-none focus:ring-1 focus:ring-ring backdrop-blur-xl disabled:opacity-50 font-sans"
             style={{
               minHeight: "48px",
               maxHeight: "160px",
@@ -58,7 +58,7 @@ export function ChatInput({
           </button>
         </div>
       </form>
-      <p className="mt-2 text-center text-xs text-muted-foreground font-sans">
+      <p className="mt-2 text-center text-xs text-foreground/40 font-sans">
         ADK Agent can make mistakes. Verify important information.
       </p>
     </div>

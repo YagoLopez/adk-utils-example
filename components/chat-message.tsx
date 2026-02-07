@@ -34,10 +34,10 @@ export function ChatMessage({ message }: ChatMessageProps) {
           {isUser ? "You" : "Agent"}
         </span>
         <div
-          className={`rounded-2xl px-4 py-3 text-sm leading-relaxed font-sans ${
+          className={`rounded-2xl px-4 py-3 text-sm leading-relaxed font-sans backdrop-blur-xl ${
             isUser
               ? "rounded-tr-sm bg-accent text-accent-foreground"
-              : "rounded-tl-sm bg-card text-card-foreground border border-border"
+              : "rounded-tl-sm bg-glass/70 text-card-foreground border border-border"
           }`}
         >
           {message.parts.map((part, index) => {
