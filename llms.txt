@@ -1,0 +1,41 @@
+# adk-utils-example
+
+> A Next.js 16 project demonstrating the usage of Agent Development Kit (ADK) utilities and the `@yagolopez/adk-utils` package.
+
+## Summary
+This project serves as an example and testing ground for agentic development using Google's ADK and associated utilities. It features a Next.js frontend, an agent directory for defining autonomous or semi-autonomous agents, and integration with various AI SDKs (Google, Ollama).
+
+## Core Technologies
+- **Next.js 16**: Modern React framework for building web applications.
+- **React 19**: The latest version of the React library for building UI.
+- **Tailwind CSS 4**: Utility-first CSS framework for modern styling.
+- **ADK (@google/adk)**: Google's Agent Development Kit for building agentic applications.
+- **ADK Utils (@yagolopez/adk-utils)**: Custom utilities for enhancing ADK functionality.
+- **Jest**: Testing framework for unit and integration tests.
+- **TypeScript**: Typed superset of JavaScript for improved developer experience and code quality.
+
+## Project Structure
+- `/app`: Main application directory.
+    - `/agents`: Contains agent definitions and logic (e.g., `agent.ts`, `agent1.ts`, `agent2.ts`).
+    - `/api`: Backend API routes for the application.
+    - `page.tsx`: The main landing page of the application.
+    - `layout.tsx`: Root layout component for the application.
+- `/public`: Static assets.
+- `package.json`: Project configuration, scripts, and dependencies.
+- `tsconfig.json`: TypeScript configuration.
+- `jest.config.js`: (If defined) or `package.json` configurations for Jest testing.
+
+## Key Scripts
+- `npm run dev`: Starts the Next.js development server.
+- `npm run build`: Builds the application for production.
+- `npm run start`: Starts the production server.
+- `npm run lint`: Runs ESLint for code quality checks.
+- `npm run adk:web`: Command related to ADK web tools (pointing to `./app/agents/`).
+- `npm run test`: Runs Jest tests.
+- `npm run test:watch`: Runs tests in watch mode.
+- `npm run test:coverage`: Generates a test coverage report.
+
+## Documentation Links
+- [Next.js Documentation](https://nextjs.org/docs)
+- [ADK Documentation](https://github.com/google/adk) (Internal/Reference)
+- [React Documentation](https://react.dev/blog/2024/12/05/react-19)
