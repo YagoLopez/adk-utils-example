@@ -1,7 +1,7 @@
 "use client";
 
-import { ArrowUp } from "lucide-react";
-import { useFocusOnLoad } from "@/hooks/use-focus-on-load";
+import {ArrowUp} from "lucide-react";
+import {useFocusOnLoad} from "@/hooks/use-focus-on-load";
 
 interface ChatInputProps {
   input: string;
@@ -11,11 +11,11 @@ interface ChatInputProps {
 }
 
 export function ChatInput({
-  input,
-  onInputChange,
-  onSubmit,
-  isLoading,
-}: ChatInputProps) {
+                            input,
+                            onInputChange,
+                            onSubmit,
+                            isLoading,
+                          }: ChatInputProps) {
   const textareaRef = useFocusOnLoad(isLoading);
 
   return (
@@ -58,7 +58,7 @@ export function ChatInput({
             className="absolute bottom-2 right-2 flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Send message"
           >
-            <ArrowUp className="h-4 w-4" />
+            <ArrowUp className="h-4 w-4"/>
           </button>
         </div>
       </form>

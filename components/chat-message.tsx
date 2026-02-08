@@ -1,13 +1,15 @@
 "use client";
 
-import type { UIMessage } from "ai";
-import { Bot, User } from "lucide-react";
+import type {UIMessage} from "ai";
+import {Bot, User} from "lucide-react";
+import {ChatTypingIndicator} from "@/components/chat-typing-indicator";
 
 interface ChatMessageProps {
   message: UIMessage;
+  isLoading?: boolean;
 }
 
-export function ChatMessage({ message }: ChatMessageProps) {
+export function ChatMessage({message, isLoading}: ChatMessageProps) {
   const isUser = message.role === "user";
 
   return (
@@ -16,26 +18,30 @@ export function ChatMessage({ message }: ChatMessageProps) {
     >
       <div
         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${isUser ? "bg-muted" : "bg-accent"
-          }`}
+        }`}
       >
         {isUser ? (
-          <User className="h-4 w-4 text-foreground" />
+          <User className="h-4 w-4 text-foreground"/>
         ) : (
-          <Bot className="h-4 w-4 text-accent-foreground" />
+          <Bot className="h-4 w-4 text-accent-foreground"/>
         )}
       </div>
       <div
         className={`flex max-w-[75%] flex-col gap-1 ${isUser ? "items-end" : "items-start"
-          }`}
+        }`}
       >
-        <span className="text-xs text-muted-foreground font-sans">
-          {isUser ? "You" : "Agent"}
+        <span className="flex items-center text-xs text-muted-foreground font-sans">
+          {isUser ? "You" : (
+            <>
+              "Agent" {isLoading && <ChatTypingIndicator/>}
+            </>
+          )}
         </span>
         <div
           className={`rounded-2xl px-4 py-3 text-sm leading-relaxed font-sans ${isUser
             ? "rounded-tr-sm bg-accent text-accent-foreground"
             : "rounded-tl-sm bg-card text-card-foreground border border-border"
-            }`}
+          }`}
         >
           {message.parts.map((part, index) => {
             if (part.type === "text") {
