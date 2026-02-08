@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUp } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useFocusOnLoad } from "@/hooks/use-focus-on-load";
 
 interface ChatInputProps {
   input: string;
@@ -16,13 +16,7 @@ export function ChatInput({
   onSubmit,
   isLoading,
 }: ChatInputProps) {
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  useEffect(() => {
-    if (!isLoading && textareaRef.current) {
-      textareaRef.current.focus();
-    }
-  }, [isLoading]);
+  const textareaRef = useFocusOnLoad(isLoading);
 
   return (
     <div className="border-t border-border px-4 py-4 sm:px-6">
