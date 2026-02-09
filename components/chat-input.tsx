@@ -78,7 +78,10 @@ export function ChatInput({
       </form>
       <p className="mt-2 text-center text-xs text-muted-foreground font-sans">
         Created by{" "}
-        <a href="https://github.com/" className="text-blue-500 hover:underline">
+        <a
+          href="https://yagolopez.js.org/"
+          className="text-blue-500 hover:underline"
+        >
           Yago López
         </a>
       </p>
