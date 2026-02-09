@@ -1,21 +1,21 @@
 "use client";
 
-import {useState, useRef, useEffect} from "react";
-import {useChat} from "@ai-sdk/react";
-import {DefaultChatTransport} from "ai";
-import {ChatHeader} from "@/components/chat-header";
-import {ChatMessage} from "@/components/chat-message";
-import {ChatInput} from "@/components/chat-input";
-import {ChatEmptyState} from "@/components/chat-empty-state";
-import {ChatTypingIndicator} from "@/components/chat-typing-indicator";
+import { useState, useRef, useEffect } from "react";
+import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport } from "ai";
+import { ChatHeader } from "@/components/chat-header";
+import { ChatMessage } from "@/components/chat-message";
+import { ChatInput } from "@/components/chat-input";
+import { ChatEmptyState } from "@/components/chat-empty-state";
+import { ChatTypingIndicator } from "@/components/chat-typing-indicator";
 
-const transport = new DefaultChatTransport({api: "/api/genai-agent"});
+const transport = new DefaultChatTransport({ api: "/api/genai-agent" });
 
 export default function Home() {
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const {messages, sendMessage, status} = useChat({transport});
+  const { messages, setMessages, sendMessage, status } = useChat({ transport });
 
   const isLoading = status === "streaming" || status === "submitted";
 
@@ -28,31 +28,36 @@ export default function Home() {
 
   const handleSubmit = () => {
     if (!input.trim() || isLoading) return;
-    sendMessage({text: input});
+    sendMessage({ text: input });
+    setInput("");
+  };
+
+  const handleReset = () => {
+    setMessages([]);
     setInput("");
   };
 
   const handleSuggestionClick = (text: string) => {
-    sendMessage({text});
+    sendMessage({ text });
   };
 
   return (
     <div className="flex h-dvh flex-col bg-background font-sans">
-      <ChatHeader messageCount={messages.length}/>
+      <ChatHeader messageCount={messages.length} />
 
       <main
         ref={scrollRef}
         className="chat-scroll flex flex-1 flex-col overflow-y-auto"
       >
         {messages.length === 0 ? (
-          <ChatEmptyState onSuggestionClick={handleSuggestionClick}/>
+          <ChatEmptyState onSuggestionClick={handleSuggestionClick} />
         ) : (
           <>
             <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6 sm:px-6">
               {messages.map((message) => (
-                <ChatMessage key={message.id} message={message}/>
+                <ChatMessage key={message.id} message={message} />
               ))}
-              <div>{isLoading && (<ChatTypingIndicator/>)}</div>
+              <div>{isLoading && (<ChatTypingIndicator />)}</div>
             </div>
 
           </>
@@ -63,6 +68,8 @@ export default function Home() {
         input={input}
         onInputChange={setInput}
         onSubmit={handleSubmit}
+        onReset={handleReset}
+        isResetDisabled={messages.length === 0}
         isLoading={isLoading}
       />
     </div>
