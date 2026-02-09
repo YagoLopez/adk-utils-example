@@ -9,13 +9,13 @@ interface ChatEmptyStateProps {
 const suggestions = [
   {
     icon: Clock,
-    label: "Current time",
-    prompt: "What time is it in Tokyo?",
+    label: "Agent Tools",
+    prompt: "What agent tools do you have?",
   },
   {
     icon: Globe,
-    label: "World clock",
-    prompt: "Tell me the time in New York and London",
+    label: "Source Code",
+    prompt: "Give me an example of Typescript Class",
   },
   {
     icon: Sparkles,

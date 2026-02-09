@@ -1,6 +1,8 @@
 // todo: rate limiter
 // todo: response in markdown
 // todo: allow agent and model configuration
+// todo: tooltips for buttons
+// todo: change icons in empty state
 
 "use client";
 

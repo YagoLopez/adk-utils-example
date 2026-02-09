@@ -33,6 +33,7 @@ export function ChatInput({
       >
         <div className="relative flex-1">
           <textarea
+            name="message"
             ref={textareaRef}
             value={input}
             onChange={(e) => onInputChange(e.target.value)}
@@ -45,7 +46,7 @@ export function ChatInput({
             placeholder="Message the agent..."
             disabled={isLoading}
             rows={1}
-            className="w-full resize-none rounded-xl border border-border bg-card px-4 py-3 pr-[88px] text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans"
+            className="w-full resize-none rounded-xl border border-border bg-card mt-4 px-4 py-3 pr-[88px] text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans"
             style={{
               minHeight: "48px",
               maxHeight: "160px",
@@ -62,7 +63,7 @@ export function ChatInput({
             className="absolute bottom-[14px] right-12 flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
             aria-label="Send message"
           >
-            <ArrowUp className="h-4 w-4"/>
+            <ArrowUp className="h-4 w-4" />
           </button>
           <button
             type="button"
@@ -76,7 +77,10 @@ export function ChatInput({
         </div>
       </form>
       <p className="mt-2 text-center text-xs text-muted-foreground font-sans">
-        Created by <a href="https://github.com/" className="text-blue-500 hover:underline">Yago López</a>
+        Created by{" "}
+        <a href="https://github.com/" className="text-blue-500 hover:underline">
+          Yago López
+        </a>
       </p>
     </div>
   );

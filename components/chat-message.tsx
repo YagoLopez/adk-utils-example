@@ -3,7 +3,11 @@
 import type { UIMessage } from "ai";
 import { Bot, User } from "lucide-react";
 import { Streamdown } from "streamdown";
-import { code } from "@streamdown/code";
+import { createCodePlugin } from "@streamdown/code";
+
+const code = createCodePlugin({
+  themes: ["vitesse-light", "vitesse-dark"],
+});
 
 interface ChatMessageProps {
   message: UIMessage;
@@ -26,9 +30,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
   return (
     <div className={`flex gap-3 ${isUser ? "flex-row-reverse" : "flex-row"}`}>
       <div
-        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
-          isUser ? "bg-muted" : "bg-accent"
-        }`}
+        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${isUser ? "bg-muted" : "bg-accent"}`}
       >
         {isUser ? (
           <User className="h-4 w-4 text-foreground" />
