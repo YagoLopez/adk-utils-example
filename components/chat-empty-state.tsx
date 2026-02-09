@@ -15,7 +15,8 @@ const suggestions = [
   {
     icon: Globe,
     label: "Source Code",
-    prompt: "Give me an example of Typescript Class",
+    prompt:
+      "Give me a code example of a simple Typescript class less than 20 lines long",
   },
   {
     icon: Sparkles,

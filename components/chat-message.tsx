@@ -38,8 +38,12 @@ export function ChatMessage({ message }: ChatMessageProps) {
           <Bot className="h-4 w-4 text-accent-foreground" />
         )}
       </div>
-      <div className={`flex min-w-0 flex-col gap-1 max-w-[100%]`}>
-        <span className="flex items-center text-xs text-muted-foreground font-sans">
+      <div
+        className={`flex min-w-0 flex-col gap-1 max-w-[100%] ${isUser ? "items-end" : "items-start"}`}
+      >
+        <span
+          className={`flex items-center text-xs text-muted-foreground font-sans justify-end`}
+        >
           {isUser ? "You" : "Agent"}
         </span>
         <div
