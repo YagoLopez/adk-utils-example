@@ -23,7 +23,7 @@ export function ChatInput({
   const textareaRef = useFocusOnLoad(isLoading);
 
   return (
-    <div className="border-t border-accent/50 px-4 py-4 sm:px-6">
+    <div className="border-t border-zinc-700 bg-card px-4 py-4 sm:px-6">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -46,7 +46,7 @@ export function ChatInput({
             placeholder="Message the agent..."
             disabled={isLoading}
             rows={1}
-            className="w-full resize-none rounded-xl border border-border bg-card mt-4 px-4 py-3 pr-[88px] text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans"
+            className="w-full resize-none rounded-xl border border-zinc-700 bg-card mt-4 px-4 py-3 pr-[88px] text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans"
             style={{
               minHeight: "48px",
               maxHeight: "160px",
