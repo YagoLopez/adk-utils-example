@@ -47,7 +47,7 @@ export function ChatEmptyState({ onSuggestionClick }: ChatEmptyStateProps) {
           <button
             key={item.label}
             onClick={() => onSuggestionClick(item.prompt)}
-            className="flex flex-col items-center gap-2 rounded-xl border border-border bg-card p-4 text-center transition-colors hover:border-accent/50 hover:bg-muted"
+            className="flex flex-col items-center gap-2 rounded-xl border border-border bg-card p-4 text-center transition-colors hover:border-accent/50 hover:bg-muted hover:cursor-pointer"
           >
             <item.icon className="h-5 w-5 text-muted-foreground" />
             <span className="text-xs font-medium text-foreground font-sans">

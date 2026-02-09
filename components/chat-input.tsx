@@ -23,7 +23,7 @@ export function ChatInput({
   const textareaRef = useFocusOnLoad(isLoading);
 
   return (
-    <div className="border-t border-border px-4 py-4 sm:px-6">
+    <div className="border border-accent/50 px-4 py-4 sm:px-6">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -76,7 +76,7 @@ export function ChatInput({
         </div>
       </form>
       <p className="mt-2 text-center text-xs text-muted-foreground font-sans">
-        ADK Agent can make mistakes. Verify important information.
+        Created by <a href="https://github.com/" className="text-blue-500 hover:underline">Yago López</a>
       </p>
     </div>
   );

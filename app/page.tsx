@@ -1,3 +1,7 @@
+// todo: rate limiter
+// todo: response in markdown
+// todo: allow agent and model configuration
+
 "use client";
 
 import { useState, useRef, useEffect } from "react";

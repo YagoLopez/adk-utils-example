@@ -18,7 +18,7 @@ export function ChatHeader({ messageCount }: ChatHeaderProps) {
             ADK Agent
           </h1>
           <p className="text-xs text-muted-foreground font-sans">
-            Powered by Google ADK
+            Powered by Ollama Cloud
           </p>
         </div>
       </div>
