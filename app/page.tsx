@@ -8,7 +8,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { useRateLimitedCallback } from "@/hooks/use-rate-limited-callback";
+import { useRateLimitedCallback } from "@tanstack/react-pacer";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { ChatHeader } from "@/components/chat-header";

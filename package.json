@@ -20,6 +20,7 @@
     "@google/genai": "^1.37.0",
     "@streamdown/code": "^1.0.1",
     "@tanstack/pacer": "^0.18.0",
+    "@tanstack/react-pacer": "^0.19.4",
     "@yagolopez/adk-utils": "^0.2.1",
     "ai": "^6.0.39",
     "lucide-react": "^0.468.0",
