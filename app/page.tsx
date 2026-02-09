@@ -3,6 +3,8 @@
 // todo: allow agent and model configuration
 // todo: tooltips for buttons
 // todo: change icons in empty state
+// todo: github actions
+// todo: detect tool response
 
 "use client";
 

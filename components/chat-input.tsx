@@ -23,7 +23,7 @@ export function ChatInput({
   const textareaRef = useFocusOnLoad(isLoading);
 
   return (
-    <div className="border border-accent/50 px-4 py-4 sm:px-6">
+    <div className="border-t border-accent/50 px-4 py-4 sm:px-6">
       <form
         onSubmit={(e) => {
           e.preventDefault();
