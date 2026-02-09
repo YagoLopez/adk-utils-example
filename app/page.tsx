@@ -1,5 +1,4 @@
 // todo: rate limiter
-// todo: response in markdown
 // todo: allow agent and model configuration
 // todo: tooltips for buttons
 // todo: change icons in empty state
@@ -8,7 +7,7 @@
 
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { ChatHeader } from "@/components/chat-header";
@@ -16,6 +15,7 @@ import { ChatMessage } from "@/components/chat-message";
 import { ChatInput } from "@/components/chat-input";
 import { ChatEmptyState } from "@/components/chat-empty-state";
 import { ChatTypingIndicator } from "@/components/chat-typing-indicator";
+import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
 
 const transport = new DefaultChatTransport({ api: "/api/genai-agent" });
 
@@ -26,11 +26,7 @@ export default function Home() {
   const isLoading = status === "streaming" || status === "submitted";
 
   // Auto-scroll to bottom on new messages
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
-  }, [messages, status]);
+  useScrollToBottom(scrollRef, [messages, status]);
 
   const handleSubmit = () => {
     if (!input.trim() || isLoading) return;
