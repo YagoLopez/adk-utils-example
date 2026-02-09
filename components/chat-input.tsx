@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp, RotateCcw } from "lucide-react";
+import { ArrowRight, Home } from "lucide-react";
 import { useFocusOnLoad } from "@/hooks/use-focus-on-load";
 
 interface ChatInputProps {
@@ -63,7 +63,7 @@ export function ChatInput({
             className="absolute bottom-[14px] right-12 flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
             aria-label="Send message"
           >
-            <ArrowUp className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4" />
           </button>
           <button
             type="button"
@@ -72,7 +72,7 @@ export function ChatInput({
             className="absolute bottom-[14px] right-2 flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
             aria-label="Reset conversation"
           >
-            <RotateCcw className="h-4 w-4" />
+            <Home className="h-4 w-4" />
           </button>
         </div>
       </form>

@@ -49,7 +49,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
         <div
           className={`rounded-2xl px-4 py-3 text-sm leading-relaxed font-sans ${
             isUser
-              ? "rounded-tr-sm bg-accent text-accent-foreground"
+              ? "rounded-tr-sm bg-accent text-accent-foreground border border-cyan-300"
               : "rounded-tl-sm bg-card text-card-foreground border border-border"
           }`}
         >
