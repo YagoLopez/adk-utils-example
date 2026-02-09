@@ -2,14 +2,12 @@
 
 import type {UIMessage} from "ai";
 import {Bot, User} from "lucide-react";
-import {ChatTypingIndicator} from "@/components/chat-typing-indicator";
 
 interface ChatMessageProps {
   message: UIMessage;
-  isLoading?: boolean;
 }
 
-export function ChatMessage({message, isLoading}: ChatMessageProps) {
+export function ChatMessage({message}: ChatMessageProps) {
   const isUser = message.role === "user";
 
   return (
@@ -31,11 +29,7 @@ export function ChatMessage({message, isLoading}: ChatMessageProps) {
         }`}
       >
         <span className="flex items-center text-xs text-muted-foreground font-sans">
-          {isUser ? "You" : (
-            <>
-              "Agent" {isLoading && <ChatTypingIndicator/>}
-            </>
-          )}
+          {isUser ? "You" : "Agent"}
         </span>
         <div
           className={`rounded-2xl px-4 py-3 text-sm leading-relaxed font-sans ${isUser

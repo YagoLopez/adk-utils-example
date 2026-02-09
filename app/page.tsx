@@ -7,6 +7,7 @@ import {ChatHeader} from "@/components/chat-header";
 import {ChatMessage} from "@/components/chat-message";
 import {ChatInput} from "@/components/chat-input";
 import {ChatEmptyState} from "@/components/chat-empty-state";
+import {ChatTypingIndicator} from "@/components/chat-typing-indicator";
 
 const transport = new DefaultChatTransport({api: "/api/genai-agent"});
 
@@ -46,11 +47,15 @@ export default function Home() {
         {messages.length === 0 ? (
           <ChatEmptyState onSuggestionClick={handleSuggestionClick}/>
         ) : (
-          <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6 sm:px-6">
-            {messages.map((message) => (
-              <ChatMessage isLoading={isLoading} key={message.id} message={message}/>
-            ))}
-          </div>
+          <>
+            <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6 sm:px-6">
+              {messages.map((message) => (
+                <ChatMessage key={message.id} message={message}/>
+              ))}
+              <div>{isLoading && (<ChatTypingIndicator/>)}</div>
+            </div>
+
+          </>
         )}
       </main>
 
