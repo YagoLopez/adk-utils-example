@@ -28,9 +28,9 @@ const suggestions = [
   },
   {
     icon: Sparkles,
-    label: "ER Diagram",
-    prompt: "Create an example of ER diagram with maximum three tables",
-    info: "Shows an example of an Entity Relationship (ER) diagram.",
+    label: "Flowchart Diagram",
+    prompt: "Create an example of flowchart diagram that shows a basic decision‑making process",
+    info: "Shows an example of a flowchart diagram.",
   },
 ];
 
