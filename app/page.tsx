@@ -19,6 +19,7 @@ import { ChatTypingIndicator } from "@/components/chat-typing-indicator";
 import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
 
 const LIMIT = 20;
+const ONE_HOUR_IN_MS = 60 * 60 * 1000;
 
 const transport = new DefaultChatTransport({ api: "/api/genai-agent" });
 
@@ -38,7 +39,7 @@ export default function Home() {
     },
     {
       limit: LIMIT,
-      window: 3600000, // 1 hour
+      window: ONE_HOUR_IN_MS,
       onReject: () => {
         alert(
           `Rate limit exceeded. You can only send ${LIMIT} messages per hour.`,
