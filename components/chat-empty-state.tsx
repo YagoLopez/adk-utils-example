@@ -1,6 +1,6 @@
 "use client";
 
-import { Bot, Clock, Globe, Sparkles } from "lucide-react";
+import { BarChart, Bot, CodeXml, Wrench } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -14,20 +14,20 @@ interface ChatEmptyStateProps {
 
 const suggestions = [
   {
-    icon: Clock,
+    icon: Wrench,
     label: "Agent Tools",
     prompt: "What agent tools do you have?",
     info: "Shows information about the available agent tools.",
   },
   {
-    icon: Globe,
+    icon: CodeXml,
     label: "Source Code",
     prompt:
       "Give me a code example of a simple Typescript class less than 20 lines long",
     info: "Shows a code example of a simple Typescript class.",
   },
   {
-    icon: Sparkles,
+    icon: BarChart,
     label: "Flowchart Diagram",
     prompt: "Create an example of flowchart diagram that shows a basic decision‑making process",
     info: "Shows an example of a flowchart diagram.",
