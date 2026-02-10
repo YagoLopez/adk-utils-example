@@ -19,6 +19,7 @@
     "@google/adk-devtools": "^0.3.0",
     "@google/genai": "^1.37.0",
     "@streamdown/code": "^1.0.1",
+    "@streamdown/mermaid": "^1.0.2",
     "@tanstack/pacer": "^0.18.0",
     "@tanstack/react-pacer": "^0.19.4",
     "@yagolopez/adk-utils": "^0.2.1",

@@ -4,6 +4,7 @@ import type { UIMessage } from "ai";
 import { Bot, User } from "lucide-react";
 import { Streamdown } from "streamdown";
 import { createCodePlugin } from "@streamdown/code";
+import { mermaid } from "@streamdown/mermaid";
 
 const code = createCodePlugin({
   themes: ["vitesse-light", "vitesse-dark"],
@@ -57,7 +58,12 @@ export function ChatMessage({ message }: ChatMessageProps) {
             if (part.type === "text") {
               return (
                 <div key={index} className="streamdown-content w-full min-w-0">
-                  <Streamdown plugins={{ code }}>{part.text}</Streamdown>
+                  <Streamdown
+                    plugins={{ code, mermaid }}
+                    shikiTheme={["dracula", "dracula"]}
+                  >
+                    {part.text}
+                  </Streamdown>
                 </div>
               );
             }

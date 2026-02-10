@@ -19,6 +19,34 @@ const getCurrentTime = new FunctionTool({
   },
 });
 
+const createMermaidDiagram = new FunctionTool({
+  name: "create_mermaid_diagram",
+  description: "Creates a mermaid diagram using markdown.",
+  parameters: z.object({
+    type: z
+      .enum([
+        "flowchart",
+        "sequence",
+        "class",
+        "state",
+        "er",
+        "gantt",
+        "pie",
+        "mindmap",
+      ])
+      .describe("The type of diagram to create."),
+    definition: z
+      .string()
+      .describe("The mermaid diagram definition."),
+  }),
+  execute: ({ definition }) => {
+    return {
+      status: "success",
+      report: `\`\`\`mermaid\n${definition}\n\`\`\``,
+    };
+  },
+});
+
 export const rootAgent = new LlmAgent({
   name: "hello_time_agent",
   // model: 'gemini-2.5-flash',
@@ -27,6 +55,7 @@ export const rootAgent = new LlmAgent({
   model: new OllamaModel("gpt-oss:120b-cloud", "https://ollama.com"),
   description: "Tells the current time in a specified city.",
   instruction: `You are a helpful assistant that tells the current time in a city.
-                Use the 'getCurrentTime' tool for this purpose.`,
-  tools: [getCurrentTime],
+                Use the 'getCurrentTime' tool for this purpose.
+                If the user asks for a diagram or visual representation, use the 'create_mermaid_diagram' tool.`,
+  tools: [getCurrentTime, createMermaidDiagram],
 });
