@@ -1,4 +1,3 @@
-// todo: create agent for providing help
 // todo: allow agent and model configuration
 // todo: tooltips for buttons
 // todo: change icons in empty state
