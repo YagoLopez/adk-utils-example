@@ -20,8 +20,8 @@ const suggestions = [
   },
   {
     icon: Sparkles,
-    label: "Get started",
-    prompt: "What can you help me with?",
+    label: "ER Diagram",
+    prompt: "create an example of ER diagram with maximum three tables",
   },
 ];
 
