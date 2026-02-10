@@ -51,9 +51,10 @@ export const rootAgent = new LlmAgent({
   // model: new OllamaModel("qwen3:0.6b", "http://localhost:11434"),
   // model: new OllamaModel("qwen3-coder-next:cloud", "https://ollama.com"),
   model: new OllamaModel("gpt-oss:120b-cloud", "https://ollama.com"),
-  description: "Tells the current time in a specified city.",
-  instruction: `You are a helpful assistant that tells the current time in a city.
-                Use the 'getCurrentTime' tool for this purpose.
+  description:
+    "Agent with two function tools: get_current_time and create_mermaid_diagram. It retrieves the current time in a specified city and creates mermaid diagrams.",
+  instruction: `You are a helpful assistant.
+                If the user ask for the time in a city, Use the 'get_current_time' tool for this purpose.
                 If the user asks for a diagram or visual representation, use the 'create_mermaid_diagram' tool.`,
   tools: [getCurrentTime, createMermaidDiagram],
 });
