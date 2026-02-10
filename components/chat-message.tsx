@@ -42,7 +42,7 @@ const mermaid = createMermaidPlugin({
       fontFamily: "sans-serif",
 
       // Edges
-      edgeLabelBackground: "#ff79c6", // Pink background for labels
+      edgeLabelBackground: "blue", // Pink background for labels
       // Note: Mermaid might use secondaryTextColor for edge labels if using secondaryColor, or textColor
     },
   },
@@ -86,10 +86,11 @@ export function ChatMessage({ message }: ChatMessageProps) {
           {isUser ? "You" : "Agent"}
         </span>
         <div
-          className={`rounded-2xl px-4 py-3 text-sm leading-relaxed font-sans ${isUser
+          className={`rounded-2xl px-4 py-3 text-sm leading-relaxed font-sans ${
+            isUser
               ? "rounded-tr-sm bg-accent text-accent-foreground border border-zinc-400"
               : "rounded-tl-sm bg-card text-card-foreground border border-zinc-700"
-            }`}
+          }`}
         >
           {message.parts.map((part, index) => {
             if (part.type === "text") {
@@ -97,7 +98,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
                 <div key={index} className="streamdown-content w-full min-w-0">
                   <Streamdown
                     plugins={{ code, mermaid }}
-                  // shikiTheme={["dracula", "dracula"]}
+                    // shikiTheme={["dracula", "dracula"]}
                   >
                     {part.text}
                   </Streamdown>
