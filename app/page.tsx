@@ -18,7 +18,7 @@ import { ChatEmptyState } from "@/components/chat-empty-state";
 import { ChatTypingIndicator } from "@/components/chat-typing-indicator";
 import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
 
-const LIMIT = 3;
+const LIMIT = 20;
 
 const transport = new DefaultChatTransport({ api: "/api/genai-agent" });
 
