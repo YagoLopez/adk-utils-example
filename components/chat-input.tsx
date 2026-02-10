@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Home } from "lucide-react";
+import { ArrowRight, Home, Info } from "lucide-react";
 import { useFocusOnLoad } from "@/hooks/use-focus-on-load";
 
 interface ChatInputProps {
@@ -8,6 +8,7 @@ interface ChatInputProps {
   onInputChange: (value: string) => void;
   onSubmit: () => void;
   onReset: () => void;
+  onInfoClick: () => void;
   isResetDisabled: boolean;
   isLoading: boolean;
 }
@@ -17,6 +18,7 @@ export function ChatInput({
   onInputChange,
   onSubmit,
   onReset,
+  onInfoClick,
   isResetDisabled,
   isLoading,
 }: ChatInputProps) {
@@ -46,7 +48,7 @@ export function ChatInput({
             placeholder="Message the agent..."
             disabled={isLoading}
             rows={1}
-            className="w-full resize-none rounded-xl border border-zinc-700 bg-card mt-4 px-4 py-3 pr-[88px] text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans"
+            className="w-full resize-none rounded-xl border border-zinc-700 bg-card mt-4 px-4 py-3 pr-[128px] text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans"
             style={{
               minHeight: "48px",
               maxHeight: "160px",
@@ -60,10 +62,19 @@ export function ChatInput({
           <button
             type="submit"
             disabled={!input.trim() || isLoading}
-            className="absolute bottom-[14px] right-12 flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+            className="absolute bottom-[14px] right-[90px] flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
             aria-label="Send message"
           >
             <ArrowRight className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            onClick={onInfoClick}
+            disabled={isLoading}
+            className="absolute bottom-[14px] right-12 flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+            aria-label="Help"
+          >
+            <Info className="h-4 w-4" />
           </button>
           <button
             type="button"

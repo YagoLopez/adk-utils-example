@@ -1,4 +1,3 @@
-// todo: create agent for providing help
 // todo: allow agent and model configuration
 // todo: tooltips for buttons
 // todo: change icons in empty state
@@ -62,6 +61,10 @@ export default function Home() {
     sendUserMessage(text, false);
   };
 
+  const handleInfoClick = () => {
+    sendUserMessage("What agent tools do you have?", false);
+  };
+
   return (
     <div className="flex h-dvh flex-col bg-background font-sans">
       <ChatHeader messageCount={messages.length} />
@@ -87,6 +90,7 @@ export default function Home() {
         onInputChange={setInput}
         onSubmit={handleSubmit}
         onReset={handleReset}
+        onInfoClick={handleInfoClick}
         isResetDisabled={messages.length === 0}
         isLoading={isLoading}
       />
