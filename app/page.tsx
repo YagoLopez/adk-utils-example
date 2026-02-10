@@ -8,6 +8,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { useRateLimitedCallback } from "@tanstack/react-pacer";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { ChatHeader } from "@/components/chat-header";
@@ -16,6 +17,9 @@ import { ChatInput } from "@/components/chat-input";
 import { ChatEmptyState } from "@/components/chat-empty-state";
 import { ChatTypingIndicator } from "@/components/chat-typing-indicator";
 import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
+
+const LIMIT = 20;
+const ONE_HOUR_IN_MS = 60 * 60 * 1000;
 
 const transport = new DefaultChatTransport({ api: "/api/genai-agent" });
 
@@ -28,10 +32,25 @@ export default function Home() {
   // Auto-scroll to bottom on new messages
   useScrollToBottom(scrollRef, [messages, status]);
 
+  const sendUserMessage = useRateLimitedCallback(
+    (text: string, clearInput: boolean) => {
+      sendMessage({ text });
+      if (clearInput) setInput("");
+    },
+    {
+      limit: LIMIT,
+      window: ONE_HOUR_IN_MS,
+      onReject: () => {
+        alert(
+          `Rate limit exceeded. You can only send ${LIMIT} messages per hour.`,
+        );
+      },
+    },
+  );
+
   const handleSubmit = () => {
     if (!input.trim() || isLoading) return;
-    sendMessage({ text: input });
-    setInput("");
+    sendUserMessage(input, true);
   };
 
   const handleReset = () => {
@@ -40,7 +59,7 @@ export default function Home() {
   };
 
   const handleSuggestionClick = (text: string) => {
-    sendMessage({ text });
+    sendUserMessage(text, false);
   };
 
   return (
