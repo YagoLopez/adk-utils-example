@@ -1,8 +1,9 @@
 // todo: allow agent and model configuration
-// todo: tooltips for buttons
 // todo: change icons in empty state
 // todo: github actions and tests
 // todo: detect tool response
+// todo: favicon
+// todo: readme
 
 "use client";
 
