@@ -20,8 +20,8 @@ const suggestions = [
   },
   {
     icon: Sparkles,
-    label: "Get started",
-    prompt: "What can you help me with?",
+    label: "Class Diagram",
+    prompt: "Create an example of class diagram with inheritance",
   },
 ];
 

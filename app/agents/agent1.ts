@@ -35,9 +35,7 @@ const createMermaidDiagram = new FunctionTool({
         "mindmap",
       ])
       .describe("The type of diagram to create."),
-    definition: z
-      .string()
-      .describe("The mermaid diagram definition."),
+    definition: z.string().describe("The mermaid diagram definition."),
   }),
   execute: ({ definition }) => {
     return {
@@ -50,7 +48,7 @@ const createMermaidDiagram = new FunctionTool({
 export const rootAgent = new LlmAgent({
   name: "hello_time_agent",
   // model: 'gemini-2.5-flash',
-  // model: new OllamaModel('qwen3:0.6b', 'http://localhost:11434'),
+  // model: new OllamaModel("qwen3:0.6b", "http://localhost:11434"),
   // model: new OllamaModel("qwen3-coder-next:cloud", "https://ollama.com"),
   model: new OllamaModel("gpt-oss:120b-cloud", "https://ollama.com"),
   description: "Tells the current time in a specified city.",
