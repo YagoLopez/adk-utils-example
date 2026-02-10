@@ -1,8 +1,8 @@
-// todo: rate limiter
+// todo: create agent for providing help
 // todo: allow agent and model configuration
 // todo: tooltips for buttons
 // todo: change icons in empty state
-// todo: github actions
+// todo: github actions and tests
 // todo: detect tool response
 
 "use client";
@@ -73,14 +73,12 @@ export default function Home() {
         {messages.length === 0 ? (
           <ChatEmptyState onSuggestionClick={handleSuggestionClick} />
         ) : (
-          <>
-            <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6 sm:px-6">
-              {messages.map((message) => (
-                <ChatMessage key={message.id} message={message} />
-              ))}
-              <div>{isLoading && <ChatTypingIndicator />}</div>
-            </div>
-          </>
+          <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6 sm:px-6">
+            {messages.map((message) => (
+              <ChatMessage key={message.id} message={message} />
+            ))}
+            <div>{isLoading && <ChatTypingIndicator />}</div>
+          </div>
         )}
       </main>
 
