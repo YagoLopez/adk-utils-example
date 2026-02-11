@@ -34,7 +34,7 @@ export function ChatHeader({ messageCount, onSuggestionClick }: ChatHeaderProps)
       </div>
 
       {messageCount > 0 && (
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:absolute sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
           <TooltipProvider>
             {suggestions.map((item) => (
               <Tooltip key={item.label}>
@@ -59,7 +59,7 @@ export function ChatHeader({ messageCount, onSuggestionClick }: ChatHeaderProps)
       )}
 
       {messageCount > 0 && (
-        <span className="rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground font-mono">
+        <span className="hidden sm:inline-block rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground font-mono">
           {messageCount} {messageCount === 1 ? "message" : "messages"}
         </span>
       )}
