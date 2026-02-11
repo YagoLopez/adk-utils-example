@@ -23,10 +23,7 @@ export function ChatEmptyState({ onSuggestionClick }: ChatEmptyStateProps) {
             <Bot className="h-8 w-8 text-accent" />
           </div>
           <div className="text-center">
-            <h2 className="text-xl font-semibold text-foreground font-sans text-balance">
-              How can I help you today?
-            </h2>
-            <p className="mt-2 text-sm text-muted-foreground font-sans text-pretty">
+            <h2 className="text-md text-foreground font-sans text-balance">
               Demostration of the usage of the{" "}
               <a
                 href="https://www.npmjs.com/package/@yagolopez/adk-utils"
@@ -37,6 +34,9 @@ export function ChatEmptyState({ onSuggestionClick }: ChatEmptyStateProps) {
                 @yagolopez/adk-utils
               </a>{" "}
               npm package in a Next.js project.
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground font-sans text-pretty">
+              Some prompt examples:
             </p>
           </div>
         </div>
