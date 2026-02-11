@@ -67,7 +67,9 @@ export function ChatMessage({ message }: ChatMessageProps) {
   }
 
   return (
-    <div className={`flex gap-2 sm:gap-3 ${isUser ? "flex-row-reverse" : "flex-row"}`}>
+    <div
+      className={`md:flex gap-2 sm:gap-3 ${isUser ? "flex-row-reverse" : "flex-row"}`}
+    >
       <div
         className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${isUser ? "bg-muted" : "bg-accent"}`}
       >
@@ -86,10 +88,11 @@ export function ChatMessage({ message }: ChatMessageProps) {
           {isUser ? "You" : "Agent"}
         </span>
         <div
-          className={`rounded-2xl px-3 sm:px-4 py-3 text-sm leading-relaxed font-sans ${isUser
-            ? "rounded-tr-sm bg-accent text-accent-foreground border border-zinc-400"
-            : "rounded-tl-sm bg-card text-card-foreground border border-zinc-700"
-            }`}
+          className={`rounded-2xl px-3 sm:px-4 py-3 text-sm leading-relaxed font-sans ${
+            isUser
+              ? "rounded-tr-xs bg-accent text-accent-foreground border border-zinc-400"
+              : "rounded-tl-xs bg-card text-card-foreground border border-zinc-700"
+          }`}
         >
           {message.parts.map((part, index) => {
             if (part.type === "text") {
