@@ -1,5 +1,4 @@
 // todo: allow agent and model configuration
-// todo: change icons in empty state
 // todo: github actions and tests
 // todo: detect tool response
 
@@ -15,9 +14,7 @@ import { ChatInput } from "@/components/chat-input";
 import { ChatEmptyState } from "@/components/chat-empty-state";
 import { ChatTypingIndicator } from "@/components/chat-typing-indicator";
 import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
-
-const LIMIT = 20;
-const ONE_HOUR_IN_MS = 60 * 60 * 1000;
+import { LIMIT, ONE_HOUR_IN_MS } from "@/lib/constants";
 
 const transport = new DefaultChatTransport({ api: "/api/genai-agent" });
 
@@ -66,7 +63,10 @@ export default function Home() {
 
   return (
     <div className="flex h-dvh flex-col bg-background font-sans">
-      <ChatHeader messageCount={messages.length} />
+      <ChatHeader
+        messageCount={messages.length}
+        onSuggestionClick={handleSuggestionClick}
+      />
 
       <main
         ref={scrollRef}
