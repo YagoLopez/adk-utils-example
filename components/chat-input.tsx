@@ -51,10 +51,10 @@ export function ChatInput({
                   onSubmit();
                 }
               }}
-              placeholder="Message the agent..."
+              placeholder="Ask the agent..."
               disabled={isLoading}
               rows={1}
-              className="w-full resize-none rounded-xl border border-zinc-700 bg-card mt-4 px-4 py-3 pr-[128px] text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans"
+              className="w-full bg-gray-800 resize-none rounded-xl border border-zinc-700 bg-card mt-4 px-4 py-3 pr-[128px] text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans"
               style={{
                 minHeight: "48px",
                 maxHeight: "160px",
@@ -96,7 +96,7 @@ export function ChatInput({
           </div>
         </form>
         <p className="mt-2 text-center text-xs text-muted-foreground font-sans flex items-center justify-center gap-1.5">
-          <Github className="h-3 w-3" />
+          <Github className="h-3 w-3" /> Visit the project on{""}
           <a
             href="https://github.com/YagoLopez/adk-utils-example"
             target="_blank"
