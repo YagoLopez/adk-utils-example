@@ -66,6 +66,7 @@ export default function Home() {
       <ChatHeader
         messageCount={messages.length}
         onSuggestionClick={handleSuggestionClick}
+        onReset={handleReset}
       />
 
       <main

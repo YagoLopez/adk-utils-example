@@ -10,28 +10,41 @@ import {
 } from "@/components/ui/tooltip";
 import { suggestions } from "@/lib/constants";
 
-
 interface ChatHeaderProps {
   messageCount: number;
   onSuggestionClick: (text: string) => void;
+  onReset: () => void;
 }
 
-export function ChatHeader({ messageCount, onSuggestionClick }: ChatHeaderProps) {
+export function ChatHeader({
+  messageCount,
+  onSuggestionClick,
+  onReset,
+}: ChatHeaderProps) {
   return (
     <header className="relative flex items-center justify-between bg-blue-600 text-white px-6 py-4">
-      <div className="flex items-center gap-3">
+      <button
+        type="button"
+        onClick={onReset}
+        disabled={messageCount === 0}
+        className={`flex items-center gap-3 py-1.5 rounded-lg transition-all text-left focus:outline-none -ml-3 ${messageCount > 0
+            ? "hover:bg-white/20 hover:text-white cursor-pointer"
+            : "cursor-default"
+          }`}
+        aria-label="Reset conversation"
+      >
         <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent">
           <Bot className="h-5 w-5 text-accent-foreground" />
         </div>
-        <div>
-          <h1 className="text-sm font-semibold text-foreground font-sans">
+        <div className="pr-4">
+          <h1 className="text-sm font-semibold text-foreground font-sans inherit-color">
             ADK Agent
           </h1>
           <p className="text-xs text-muted-foreground font-sans">
             Powered by Ollama Cloud
           </p>
         </div>
-      </div>
+      </button>
 
       {messageCount > 0 && (
         <div className="flex items-center gap-2 sm:absolute sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
