@@ -7,11 +7,12 @@ import { useEffect, RefObject } from "react";
  */
 export function useScrollToBottom(
   ref: RefObject<HTMLDivElement | null>,
-  deps: any[]
+  deps: unknown[]
 ) {
   useEffect(() => {
     if (ref.current) {
       ref.current.scrollTop = ref.current.scrollHeight;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, ...deps]);
 }
