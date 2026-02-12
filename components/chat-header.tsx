@@ -22,15 +22,16 @@ export function ChatHeader({
   onReset,
 }: ChatHeaderProps) {
   return (
-    <header className="relative flex items-center justify-between bg-blue-600 text-white px-6 py-4">
+    <header className="relative flex items-center justify-between bg-blue-600 text-white px-6 py-3">
       <button
         type="button"
         onClick={onReset}
         disabled={messageCount === 0}
-        className={`flex items-center gap-3 py-1.5 rounded-lg transition-all text-left focus:outline-none -ml-3 ${messageCount > 0
+        className={`flex items-center gap-3 py-1.5 rounded-lg transition-all text-left focus:outline-none -ml-3 ${
+          messageCount > 0
             ? "hover:bg-white/20 hover:text-white cursor-pointer"
             : "cursor-default"
-          }`}
+        }`}
         aria-label="Reset conversation"
       >
         <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent">

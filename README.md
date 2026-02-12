@@ -120,7 +120,6 @@ npm test
 ## 📝 Roadmap/Todo
 
 - [ ] Support for agent/model selection from the UI.
-- [ ] GitHub Actions for CI/CD.
 - [ ] Automatic tool response detection in the UI.
 
 ## 📄 License
