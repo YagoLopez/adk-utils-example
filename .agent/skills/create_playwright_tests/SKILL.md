@@ -39,7 +39,7 @@ test('user can [perform action]', async ({ page }) => {
   await page.getByRole('button', { name: 'Send' }).click();
   
   // 3. Assert
-  await expect(page.locator('.message-bubble')).toContainText('Hello');
+  await expect(page.getByTestId('message-bubble')).toContainText('Hello');
 });
 ```
 
