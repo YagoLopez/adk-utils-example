@@ -1,5 +1,4 @@
 // todo: allow agent and model configuration
-// todo: github actions and tests
 // todo: detect tool response
 
 "use client";
