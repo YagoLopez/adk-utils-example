@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { MockLlm, GenAIAgentService } from "@yagolopez/adk-utils";
+import { MockModel, GenAIAgentService } from "@yagolopez/adk-utils";
 import { LlmAgent } from "@google/adk";
 
 test.describe("Chat Functionality", () => {
@@ -11,7 +11,7 @@ test.describe("Chat Functionality", () => {
       const agent = new LlmAgent({
         name: "test_agent",
         description: "test-description",
-        model: new MockLlm("mock-model", 0, ["Response from mock model"]),
+        model: new MockModel("mock-model", 0, ["Response from mock model"]),
         instruction: "You are a test agent.",
       });
 
