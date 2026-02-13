@@ -1,33 +1,29 @@
 import { test, expect } from "@playwright/test";
-import { MockLlm, GenAIAgentService } from "@yagolopez/adk-utils";
-import { LlmAgent } from "@google/adk";
 
 test.describe("Chat Functionality", () => {
   test("user can send a message and receive a response", async ({ page }) => {
     // Mock response matching GenAIAgentService SSE format
-    /*
     await page.route("/api/genai-agent", async (route) => {
-      const { messages } = route.request().postDataJSON();
-      const mockLlm = new MockLlm();
-      mockLlm.setMockResponse(['I correspond to "hola"']);
-      const agent = new LlmAgent({
-        name: 'test_agent',
-        description: 'test-description',
-        model: mockLlm,
-        instruction: 'You are a test agent.'
-      });
-      const service = new GenAIAgentService(agent);
-      const response = await service.createStreamingResponse(messages);
-      const bodyBuffer = await response.arrayBuffer();
+      const chunks = [
+        { type: "start" },
+        { type: "start-step" },
+        { type: "text-start", id: "text-1" },
+        { type: "text-delta", id: "text-1", delta: 'I correspond to "hola"' },
+        { type: "text-end", id: "text-1" },
+        { type: "finish-step" },
+        { type: "finish", finishReason: "stop" },
+      ];
+
+      const body = chunks
+        .map((chunk) => `data: ${JSON.stringify(chunk)}\n\n`)
+        .join("");
 
       await route.fulfill({
-        status: response.status,
-        headers: Object.fromEntries(response.headers.entries()),
-        contentType: response.headers.get('content-type') || 'text/event-stream',
-        body: Buffer.from(bodyBuffer)
+        status: 200,
+        contentType: "text/event-stream",
+        body,
       });
     });
-*/
 
     await page.goto("/");
 
@@ -40,6 +36,6 @@ test.describe("Chat Functionality", () => {
     await sendButton.click();
 
     // Wait for response
-    await expect(page.getByText("Hello World!")).toBeVisible();
+    await expect(page.getByText('I correspond to "hola"')).toBeVisible();
   });
 });
