@@ -1,41 +1,41 @@
 import { test, expect } from "@playwright/test";
+import { MockLlm, GenAIAgentService } from "@yagolopez/adk-utils";
+import { LlmAgent } from "@google/adk";
 
 test.describe("Chat Functionality", () => {
   test("user can send a message and receive a response", async ({ page }) => {
-    // Mock response matching GenAIAgentService SSE format
     await page.route("/api/genai-agent", async (route) => {
-      const chunks = [
-        { type: "start" },
-        { type: "start-step" },
-        { type: "text-start", id: "text-1" },
-        { type: "text-delta", id: "text-1", delta: 'I correspond to "hola"' },
-        { type: "text-end", id: "text-1" },
-        { type: "finish-step" },
-        { type: "finish", finishReason: "stop" },
-      ];
+      const { messages } = route.request().postDataJSON();
 
-      const body = chunks
-        .map((chunk) => `data: ${JSON.stringify(chunk)}\n\n`)
-        .join("");
+      // Create agent with mock model
+      const agent = new LlmAgent({
+        name: "test_agent",
+        description: "test-description",
+        model: new MockLlm("mock-model", 0, ["Response from mock model"]),
+        instruction: "You are a test agent.",
+      });
+
+      const service = new GenAIAgentService(agent);
+      const response = service.createStreamingResponse(messages);
+      const bodyBuffer = await response.arrayBuffer();
 
       await route.fulfill({
-        status: 200,
-        contentType: "text/event-stream",
-        body,
+        status: response.status,
+        headers: Object.fromEntries(response.headers.entries()),
+        contentType:
+          response.headers.get("content-type") || "text/event-stream",
+        body: Buffer.from(bodyBuffer),
       });
     });
 
     await page.goto("/");
 
     const input = page.getByPlaceholder("Ask the agent...");
-    await expect(input).toBeVisible();
     await input.fill("hola");
 
     const sendButton = page.getByRole("button", { name: "Send message" });
-    await expect(sendButton).toBeEnabled();
     await sendButton.click();
 
-    // Wait for response
-    await expect(page.getByText('I correspond to "hola"')).toBeVisible();
+    await expect(page.getByText("Response from mock model")).toBeVisible();
   });
 });
