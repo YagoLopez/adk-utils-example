@@ -4,18 +4,17 @@ import { LlmAgent } from "@google/adk";
 
 test.describe("Chat Functionality", () => {
   test("user can send a message and receive a response", async ({ page }) => {
+    // Create agent with mock model
+    const agent = new LlmAgent({
+      name: "test_agent",
+      description: "test-description",
+      model: new MockModel("mock-model", 0, ["Response from mock model"]),
+      instruction: "You are a test agent.",
+    });
+    const service = new GenAIAgentService(agent);
+
     await page.route("/api/genai-agent", async (route) => {
       const { messages } = route.request().postDataJSON();
-
-      // Create agent with mock model
-      const agent = new LlmAgent({
-        name: "test_agent",
-        description: "test-description",
-        model: new MockModel("mock-model", 0, ["Response from mock model"]),
-        instruction: "You are a test agent.",
-      });
-
-      const service = new GenAIAgentService(agent);
       const response = service.createStreamingResponse(messages);
       const bodyBuffer = await response.arrayBuffer();
 
