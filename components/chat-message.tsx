@@ -89,8 +89,8 @@ export function ChatMessage({ message }: ChatMessageProps) {
         </span>
         <div
           className={`rounded-2xl px-3 sm:px-4 py-3 text-sm leading-relaxed font-sans ${isUser
-              ? "rounded-tr-xs bg-accent text-accent-foreground border border-zinc-400"
-              : "rounded-tl-xs bg-card text-card-foreground border border-zinc-700"
+            ? "rounded-tr-xs bg-accent text-accent-foreground border border-zinc-400"
+            : "rounded-tl-xs bg-card text-card-foreground border border-zinc-700"
             }`}
         >
           {message.parts.map((part, index) => {
