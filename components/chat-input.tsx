@@ -54,7 +54,7 @@ export function ChatInput({
               placeholder="Ask the agent..."
               disabled={isLoading}
               rows={1}
-              className="w-full bg-gray-800 resize-none rounded-xl border border-zinc-700 bg-card mt-4 px-4 py-3 pr-[128px] text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans"
+              className="w-full bg-gray-800 resize-none rounded-xl border border-zinc-700 bg-card mt-4 px-4 py-3 pr-[128px] text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 font-sans shadow-[0_0_8px_rgba(255,255,255,0.2)] focus:shadow-[0_0_12px_rgba(255,255,255,0.4)] transition-shadow duration-300"
               style={{
                 minHeight: "48px",
                 maxHeight: "160px",
