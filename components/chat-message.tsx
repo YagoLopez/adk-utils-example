@@ -50,9 +50,10 @@ const mermaid = createMermaidPlugin({
 
 interface ChatMessageProps {
   message: UIMessage;
+  isLastBotMessage?: boolean;
 }
 
-export function ChatMessage({ message }: ChatMessageProps) {
+export function ChatMessage({ message, isLastBotMessage = false }: ChatMessageProps) {
   const isUser = message.role === "user";
 
   const hasRenderableContent = message.parts.some((part) => {
@@ -80,7 +81,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
         )}
       </div>
       <div
-        className={`flex min-w-0 flex-col gap-1 max-w-[100%] overflow-x-auto ${isUser ? "items-end" : "items-start"}`}
+        className={`flex min-w-0 flex-col gap-1 max-w-[100%] ${isUser ? "items-end" : "items-start"}`}
       >
         <span
           className={`flex items-center text-xs text-muted-foreground font-sans justify-end`}
@@ -88,10 +89,13 @@ export function ChatMessage({ message }: ChatMessageProps) {
           {isUser ? "You" : "Agent"}
         </span>
         <div
-          className={`rounded-2xl px-3 sm:px-4 py-3 text-sm leading-relaxed font-sans ${isUser
+          className={`rounded-2xl px-3 sm:px-4 py-3 text-sm leading-relaxed font-sans relative ${isUser
             ? "rounded-tr-xs bg-accent text-accent-foreground border border-zinc-400"
-            : "rounded-tl-xs bg-card text-card-foreground border border-zinc-700"
+            : "rounded-tl-xs bg-card text-card-foreground border border-white/20"
             }`}
+          style={!isUser && isLastBotMessage ? {
+            boxShadow: "0 0 8px 1px rgba(255, 255, 255, 0.25), 0 0 19px 2px rgba(255, 255, 255, 0.12)"
+          } : undefined}
         >
           {message.parts.map((part, index) => {
             if (part.type === "text") {
