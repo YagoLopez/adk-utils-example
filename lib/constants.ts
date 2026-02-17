@@ -11,15 +11,15 @@ export const suggestions = [
     icon: CodeXml,
     label: "Source Code",
     prompt:
-      "Give me a code example of a simple Typescript class less than 20 lines long",
-    info: "Shows a code example of a simple Typescript class.",
+      "Give me a simple code example of javascript closure less than 20 lines long",
+    info: "Shows a code example of a javascript closure.",
   },
   {
     icon: BarChart,
-    label: "Flowchart Diagram",
+    label: "Pie Chart",
     prompt:
-      "Create an example of flowchart diagram that shows a basic decision‑making process",
-    info: "Shows an example of a flowchart diagram.",
+      "Create an example of pie diagram",
+    info: "Shows an example of a pie chart diagram.",
   },
 ];
 
