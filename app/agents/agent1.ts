@@ -21,9 +21,12 @@ const getCurrentTime = new FunctionTool({
 
 const viewSourceCode = new FunctionTool({
   name: "view_source_code",
-  description:
-    "Shows the source code asked by the user",
-  parameters: z.object({ definition: z.string().describe("The kind of source code the user wants to see.") }),
+  description: "Shows the source code asked by the user",
+  parameters: z.object({
+    definition: z
+      .string()
+      .describe("The kind of source code the user wants to see."),
+  }),
   execute: ({ definition }) => {
     return {
       status: "success",
@@ -61,10 +64,10 @@ const createMermaidDiagram = new FunctionTool({
 
 export const rootAgent = new LlmAgent({
   name: "agent1",
-  // model: 'gemini-2.5-flash',
-  // model: new OllamaModel("qwen3:0.6b", "http://localhost:11434"),
+  // model: "gemini-2.5-flash",
+  model: new OllamaModel("qwen3:0.6b", "http://localhost:11434"),
   // model: new OllamaModel("qwen3-coder-next:cloud", "https://ollama.com"),
-  model: new OllamaModel("gpt-oss:120b-cloud", "https://ollama.com"),
+  // model: new OllamaModel("gpt-oss:120b-cloud", "https://ollama.com"),
   description:
     "Agent with three function tools: get_current_time, create_mermaid_diagram and view_source_code. It retrieves the current time, creates mermaid diagrams and visualizes source code.",
   instruction: `You are a helpful assistant.

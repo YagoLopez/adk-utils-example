@@ -76,10 +76,14 @@ export default function Home() {
           <ChatEmptyState onSuggestionClick={handleSuggestionClick} />
         ) : (
           <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6 sm:px-6">
-            {messages.map((message, index) => {
-              const botMessages = messages.filter(m => m.role === 'assistant');
+            {messages.map((message, _) => {
+              const botMessages = messages.filter(
+                (m) => m.role === "assistant",
+              );
               const lastBotMessage = botMessages[botMessages.length - 1];
-              const isLastBotMessage = message.role === 'assistant' && message.id === lastBotMessage?.id;
+              const isLastBotMessage =
+                message.role === "assistant" &&
+                message.id === lastBotMessage?.id;
 
               return (
                 <ChatMessage
