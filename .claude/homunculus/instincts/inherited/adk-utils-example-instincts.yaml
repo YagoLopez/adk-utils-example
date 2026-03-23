@@ -1,0 +1,153 @@
+# Instincts generated from https://github.com/YagoLopez/adk-utils-example
+# Generated: 2026-03-23T23:18:46.912Z
+# Version: 2.0
+
+---
+id: adk-utils-example-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/YagoLopez/adk-utils-example
+---
+
+# Adk Utils Example Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: feat, chore, fix, refactor, style
+
+## Evidence
+
+- 42 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat: update dependencies and configuration, dependencies: update @google/adk to 0.5.0, @google/adk-devtools to 0.5.0, @google/genai to 1.46.0
+
+---
+id: adk-utils-example-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/YagoLopez/adk-utils-example
+---
+
+# Adk Utils Example Commit Length
+
+## Action
+
+Write moderate-length commit messages (~50 characters)
+
+## Evidence
+
+- Average commit message length: 61 chars
+- Based on 42 commits
+
+---
+id: adk-utils-example-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/YagoLopez/adk-utils-example
+---
+
+# Adk Utils Example Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: adk-utils-example-import-alias
+trigger: "when importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/YagoLopez/adk-utils-example
+---
+
+# Adk Utils Example Import Alias
+
+## Action
+
+Use path aliases (@/, ~/) instead of relative imports
+
+## Evidence
+
+- Import analysis shows alias pattern
+- Example: import { x } from '@/lib/x'
+
+---
+id: adk-utils-example-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/YagoLopez/adk-utils-example
+---
+
+# Adk Utils Example Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: adk-utils-example-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/YagoLopez/adk-utils-example
+---
+
+# Adk Utils Example Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~16x per month
+- Files: app/agents/*, app/api/chat/*, app/api/genai-agent/*
+
+---
+id: adk-utils-example-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/YagoLopez/adk-utils-example
+---
+
+# Adk Utils Example Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: src/**/*
+
