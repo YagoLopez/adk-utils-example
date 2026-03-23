@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, GitBranch, Home } from "lucide-react";
+import { ArrowRight, GitCompareArrows, Home } from "lucide-react";
 import { useFocusOnLoad } from "@/hooks/use-focus-on-load";
 import {
   Tooltip,
@@ -96,7 +96,7 @@ export function ChatInput({
           </div>
         </form>
         <p className="mt-2 text-center text-xs text-muted-foreground font-sans flex items-center justify-center gap-1.5">
-          <GitBranch className="h-3 w-3" /> Visit the project on{""}
+          <GitCompareArrows className="h-3 w-3" /> Visit the project on{""}
           <a
             href="https://github.com/YagoLopez/adk-utils-example"
             target="_blank"
