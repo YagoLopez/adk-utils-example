@@ -2,8 +2,6 @@
 
 A modern, high-performance chat application demonstrating the integration of **Google Agent Development Kit (ADK)** with **Next.js 16**, **AI SDK**, and custom utilities.
 
-Includes an `llms.txt` file for enhanced discoverability and documentation for AI-assisted development.
-
 ## 🚀 Features
 
 - **Advanced AI Agents**: Built with `@google/adk`, featuring custom tools and multi-model support.
