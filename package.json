@@ -36,8 +36,8 @@
     "@ai-sdk/google": "^3.0.26",
     "@ai-sdk/react": "^3.0.83",
     "@google-cloud/storage": "^7.19.0",
-    "@google/adk": "^0.5.0",
-    "@google/adk-devtools": "^0.5.0",
+    "@google/adk": "^0.6.0",
+    "@google/adk-devtools": "^0.6.0",
     "@google/genai": "^1.46.0",
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-tooltip": "^1.2.8",
@@ -45,7 +45,7 @@
     "@streamdown/mermaid": "^1.0.2",
     "@tanstack/pacer": "^0.20.0",
     "@tanstack/react-pacer": "^0.21.0",
-    "@yagolopez/adk-utils": "^0.2.6",
+    "@yagolopez/adk-utils": "^0.2.7",
     "ai": "^6.0.81",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -58,6 +58,10 @@
     "streamdown": "^2.5.0",
     "tailwind-merge": "^3.4.0",
     "zod": "^4.3.6"
+  },
+  "overrides": {
+    "tar": "^7.5.11",
+    "@tootallnate/once": "^3.0.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
