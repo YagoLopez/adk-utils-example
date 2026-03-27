@@ -28,9 +28,6 @@
     "start": "next start",
     "lint": "eslint",
     "adk:web": "adk web ./app/agents/",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
-    "test:coverage": "jest --coverage",
     "test:e2e:headless": "playwright test --reporter=list",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:ui": "playwright test --ui"
