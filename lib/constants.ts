@@ -25,3 +25,4 @@ export const suggestions = [
 
 export const LIMIT = 20;
 export const ONE_HOUR_IN_MS = 60 * 60 * 1000;
+export const AGENT_MODEL = "gpt-oss:120b-cloud";

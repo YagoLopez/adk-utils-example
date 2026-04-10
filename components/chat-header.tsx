@@ -8,7 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { suggestions } from "@/lib/constants";
+import { suggestions, AGENT_MODEL } from "@/lib/constants";
 
 interface ChatHeaderProps {
   messageCount: number;
@@ -42,7 +42,7 @@ export function ChatHeader({
             ADK Agent
           </h1>
           <p className="text-xs text-muted-foreground font-sans">
-            Powered by Ollama Cloud
+            Powered by {AGENT_MODEL}
           </p>
         </div>
       </button>

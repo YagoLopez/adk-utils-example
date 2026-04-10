@@ -1,5 +1,6 @@
 import { FunctionTool, LlmAgent } from "@google/adk";
 import { z } from "zod";
+import { AGENT_MODEL } from "@/lib/constants";
 import { OllamaModel } from "@yagolopez/adk-utils";
 
 /* Mock tool implementation */
@@ -67,7 +68,7 @@ export const rootAgent = new LlmAgent({
   // model: "gemini-2.5-flash",
   // model: new OllamaModel("qwen3:0.6b", "http://localhost:11434"),
   // model: new OllamaModel("qwen3-coder-next:cloud", "https://ollama.com"),
-  model: new OllamaModel("gpt-oss:120b-cloud", "https://ollama.com"),
+  model: new OllamaModel(AGENT_MODEL, "https://ollama.com"),
   description: `Agent with three function tools: get_current_time, create_mermaid_diagram and view_source_code. 
     It retrieves the current time, creates mermaid diagrams and visualizes source code.`,
   instruction: `You are a helpful assistant.
