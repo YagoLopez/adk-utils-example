@@ -20,7 +20,7 @@ const transport = new DefaultChatTransport({ api: "/api/genai-agent" });
 export default function Home() {
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { messages, setMessages, sendMessage, status } = useChat({ transport });
+  const { messages, setMessages, sendMessage, status, stop } = useChat({ transport });
   const isLoading = status === "streaming" || status === "submitted";
 
   // Auto-scroll to bottom on new messages
@@ -103,6 +103,7 @@ export default function Home() {
         onInputChange={setInput}
         onSubmit={handleSubmit}
         onReset={handleReset}
+        onStop={stop}
         onInfoClick={handleInfoClick}
         isResetDisabled={messages.length === 0}
         isLoading={isLoading}

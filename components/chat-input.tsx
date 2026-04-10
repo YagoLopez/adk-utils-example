@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, GitCompareArrows, Home } from "lucide-react";
+import { ArrowRight, GitCompareArrows, Home, Square } from "lucide-react";
 import { useFocusOnLoad } from "@/hooks/use-focus-on-load";
 import {
   Tooltip,
@@ -17,6 +17,7 @@ interface ChatInputProps {
   onInfoClick: () => void;
   isResetDisabled: boolean;
   isLoading: boolean;
+  onStop?: () => void;
 }
 
 export function ChatInput({
@@ -26,6 +27,7 @@ export function ChatInput({
   onReset,
   isResetDisabled,
   isLoading,
+  onStop,
 }: ChatInputProps) {
   const textareaRef = useFocusOnLoad(isLoading);
 
@@ -65,34 +67,51 @@ export function ChatInput({
                 target.style.height = `${Math.min(target.scrollHeight, 160)}px`;
               }}
             />
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <button
-                  type="submit"
-                  disabled={!input.trim() || isLoading}
-                  className="absolute bottom-[14px] right-[45px] flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-                  aria-label="Send message"
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </TooltipTrigger>
-              <TooltipContent side="top">Send message</TooltipContent>
-            </Tooltip>
+            <div className="absolute bottom-[14px] right-2 flex items-center gap-1.5">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button
+                    type="submit"
+                    disabled={!input.trim() || isLoading}
+                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                    aria-label="Send message"
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="top">Send message</TooltipContent>
+              </Tooltip>
 
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <button
-                  type="button"
-                  onClick={onReset}
-                  disabled={isResetDisabled || isLoading}
-                  className="absolute bottom-[14px] right-2 flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-                  aria-label="Reset conversation"
-                >
-                  <Home className="h-4 w-4" />
-                </button>
-              </TooltipTrigger>
-              <TooltipContent side="top">Reset conversation</TooltipContent>
-            </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button
+                    type="button"
+                    onClick={onReset}
+                    disabled={isResetDisabled || isLoading}
+                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                    aria-label="Reset conversation"
+                  >
+                    <Home className="h-4 w-4" />
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="top">Reset conversation</TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <button
+                    type="button"
+                    onClick={onStop}
+                    disabled={!isLoading}
+                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                    aria-label="Stop Agent Response"
+                  >
+                    <Square className="h-4 w-4 fill-red-500 text-red-500" />
+                  </button>
+                </TooltipTrigger>
+                <TooltipContent side="top">Stop Agent Response</TooltipContent>
+              </Tooltip>
+            </div>
           </div>
         </form>
         <p className="mt-2 text-center text-xs text-muted-foreground font-sans flex items-center justify-center gap-1.5">
