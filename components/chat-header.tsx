@@ -27,11 +27,10 @@ export function ChatHeader({
         type="button"
         onClick={onReset}
         disabled={messageCount === 0}
-        className={`flex items-center gap-3 py-1.5 rounded-lg transition-all text-left focus:outline-none -ml-3 ${
-          messageCount > 0
-            ? "hover:bg-white/20 hover:text-white cursor-pointer"
-            : "cursor-default"
-        }`}
+        className={`flex items-center gap-3 py-1.5 rounded-lg transition-all text-left focus:outline-none -ml-3 ${messageCount > 0
+          ? "hover:bg-white/20 hover:text-white cursor-pointer"
+          : "cursor-default"
+          }`}
         aria-label="Reset conversation"
       >
         <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent">
@@ -42,7 +41,7 @@ export function ChatHeader({
             ADK Agent
           </h1>
           <p className="text-xs text-muted-foreground font-sans">
-            Powered by {AGENT_MODEL}
+            Model: {AGENT_MODEL}
           </p>
         </div>
       </button>
